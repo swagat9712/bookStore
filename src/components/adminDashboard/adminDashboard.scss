@@ -1,6 +1,10 @@
 .shopping-cart{
-    display:flex;
-    flex-direction: row;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 67px;
+    margin-left: 6%;
     .cart-text{
         font-size: 10px;
         display: flex;
@@ -8,3 +12,9 @@
         align-items: center;
     }
 }
+@media (max-width: 600px) {
+    .input-search{
+      display: none;
+    }
+  }
+  

@@ -1,9 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Education from "../../asset/education.svg";
 import TextField from "@material-ui/core/TextField";
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
@@ -87,10 +83,10 @@ export default function AdminLogin(props) {
       userService
         .adminLogin(obj)
         .then((res) => {
-          const obj = res.data;
-          localStorage.setItem("email", obj.email);
-          localStorage.setItem("token", obj.id);
-          props.history.push("/admindashboard");
+          console.log(res)
+          const obj = res.data.result;
+          localStorage.setItem("token", obj.accessToken);
+          props.history.push("/admin/admindashboard/allbooks");
           console.log(res);
         })
         .catch((error) => {
@@ -126,21 +122,6 @@ export default function AdminLogin(props) {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static">
-        <Toolbar>
-          <div className="headerName-logo">
-            <div className="logo">
-              {" "}
-              <img src={Education} />
-            </div>
-            <div className="book-store-name">
-              <Typography className={classes.title} variant="h6" noWrap>
-                BookStore
-              </Typography>
-            </div>
-          </div>
-        </Toolbar>
-      </AppBar>
       <div className="forgotpassword-container">
         <h3>Admin Login</h3>
         <div className="form-box">

@@ -1,0 +1,42 @@
+.outer-container-addbok {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .addbook-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 36%;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 1px solid #e4e4e4;
+    border-radius: 6px;
+    padding: 15px;
+    .price-quantity-discount-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        .price-quantity-discount-space{
+            margin-right: 8px;
+        }
+    }
+  }
+  .Addbook-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #a03037;
+    height: 35px;
+    border-radius: 3px;
+    color: white;
+    margin-top: 17px;
+    width: 100%;
+    cursor: pointer;
+  }
+}
+@media (max-width: 600px) {
+  .addbook-container{
+    width: 100% !important;
+  }
+}

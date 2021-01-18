@@ -2,6 +2,7 @@ import Dashboard from './components/dashboard/dasshboard'
 import ForgotPassword from './components/ForgotPassword/forgotPassword'
 import AdminLogin from './components/adminLogin/adminLogin'
 import AdminDashboard from './components/adminDashboard/adminDashboard'
+import {PrivateRoute} from './privaterout';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -13,10 +14,10 @@ function App() {
   return (
    <Router>
      <div><Switch>
-       <Route exact path="/" component={AdminLogin} />
+       <Route exact path="/admin" component={AdminLogin} />
        <Route path="/forgotpassword" component={ForgotPassword}/>
        <Route path="/dashboard" component={Dashboard}/>
-       <Route path="/admindashboard" component={AdminDashboard}/>
+       <PrivateRoute path="/admin/admindashboard" component={AdminDashboard}/>
      </Switch>
      </div>
    </Router>

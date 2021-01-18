@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,900;1,100;1,300;1,400&display=swap");
+.total-book-container {
+  padding: 0 7%;
+  display: flex;
+  flex-direction: column;
+  .book-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    h2 {
+      font-weight: 500;
+      font: "Roboto", sans-serif;
+    }
+    .MuiSelect-outlined.MuiSelect-outlined {
+      padding: 7px 26px;
+      font-size: 13px;
+    }
+  }
+  .card-books {
+    width: 233px;
+    height: 275px;
+    .makeStyles-root-5 {
+      width: 100% !important;
+      height: 100% !important;
+      min-width: 0 !important;
+    }
+    .makeStyles-root-13 {
+      width: 100% !important;
+      height: 100% !important;
+      min-width: 0 !important;
+    }
+  }
+}
+.image-container {
+  width: 100%;
+  background: #f5f5f5 0% 0% no-repeat padding-box;
+  height: 60%;
+}
+.description-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 9px 16px;
+  .book-name {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .author-name {
+    font-size: 10px;
+    font-weight: 400;
+  }
+  .price {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .parent-button {
+    margin-top: 9px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .addtobag-button {
+      font-weight: 500;
+      background: #a03037;
+      color: white;
+      padding: 5px;
+      font-size: 11px;
+      border-radius: 3px;
+      display: flex;
+      justify-content: center;
+      width: 85px;
+      cursor: pointer;
+    }
+    .addtobag-button-onclick {
+      font-weight: 500;
+      background: #3071B7;
+      color: white;
+      padding: 5px;
+      font-size: 11px;
+      border-radius: 3px;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      cursor: pointer;
+    }
+    .wishlist-button-onclick {
+      display: none;
+    }
+    .wishlist-button {
+      font-weight: 500;
+      background: lightgray;
+      border-color: gray;
+      width: 85px;
+      padding: 5px;
+      font-size: 11px;
+      display: flex;
+      justify-content: center;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,87 @@
+.MuiAppBar-colorPrimary{
+    background: #A03037 !important;
+}
+.headerName-logo{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10%;
+    margin-right: 3%;
+}
+.logo{
+    margin-right: 4px;
+}
+.search-bar{
+    background: white;
+}
+.input-search{
+    display: flex;
+    background: white;
+    width: 40%;
+    border-radius: 4px;
+}
+.search-icon{
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black !important;
+}
+.profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 67px;
+    .profile-text{
+        font-size: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.shopping-cart{
+    margin-right: 5% !important;
+}
+h5{
+    margin: 0 !important;
+}
+p{
+    margin: 0 !important;
+    font-size: 13px;
+}
+.login-menu{
+    padding: 0px 10px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.login-signin{
+    width: 122px;
+    height: 33px;
+    margin-top: 7px;
+    border: 1px solid #A03037;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #A03037;
+    margin-bottom: 7px;
+    cursor: pointer;
+}
+.login-title{
+    margin: 0 !important;
+}
+.optios-below-devider{
+    display: flex;
+    flex-direction: row;
+    opacity: 75%;
+    margin-top: 4px;
+}
+.p-below-devider{
+    font-size: 12px;
+}
+.MuiDivider-middle{
+    background: #878787;
+    width: 82%;
+}

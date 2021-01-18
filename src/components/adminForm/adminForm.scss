@@ -1,0 +1,66 @@
+.outer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .button-group {
+    position: relative;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 80%;
+    margin-bottom: 3%;
+  }
+  .outer-container-book {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+    .book-container {
+      width: 233px;
+      min-height: 275px;
+      border-style: solid;
+      border-color: gray;
+      border-radius: 5px;
+      border-width: 1px;
+      background: rgb(255, 255, 255);
+      margin-right: 9px;
+      margin-bottom: 9px;
+      .image-container-book {
+        width: 233px;
+        height: 172px;
+        background: #f5f5f5 0% 0% no-repeat padding-box;
+      }
+    }
+    .parent-button {
+      .edit-button {
+        font-weight: 500;
+        background: #a03037;
+        color: white;
+        padding: 5px;
+        font-size: 11px;
+        border-radius: 3px;
+        display: flex;
+        justify-content: center;
+        width: 85px;
+        cursor: pointer;
+      }
+      .delete-button {
+        font-weight: 500;
+        background: #a03037;
+        color: white;
+        padding: 5px;
+        font-size: 11px;
+        border-radius: 3px;
+        display: flex;
+        justify-content: center;
+        width: 85px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.MuiIconButton-root{
+  padding: 0 !important;
+}
