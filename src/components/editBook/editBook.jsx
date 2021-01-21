@@ -28,14 +28,14 @@ export default function AdminEditBook(props) {
       bookName: bookName,
       author: author,
       description: description,
-      quantity: quantity,
-      price: price,
-      discountPrice: discountPrice,
+      quantity: Number(quantity),
+      price: Number(price),
+      discountPrice: Number(discountPrice),
     };
     BookService.editBooks(obj, props.content._id)
       .then((res) => {
         console.log(res);
-        props.history.push("/admindashboard/allbooks");
+        props.history.push("/admin/admindashboard/allbooks");
       })
       .catch((error) => {
         console.log(error);

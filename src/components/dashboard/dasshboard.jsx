@@ -16,6 +16,8 @@ import MoreIcon from "@material-ui/icons/MoreVert";
 import Divider from '@material-ui/core/Divider';
 import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import Mycart from '../myCart/myCart';
+import { Link } from "react-router-dom";
 import Login from '../Login/login';
 import {
   BrowserRouter as Router,
@@ -179,12 +181,14 @@ export default function Dashboard() {
               </IconButton>
             </div>
             <div className="shopping-cart">
+              <Link to="/mycart">
               <IconButton
                 aria-label="show 17 new notifications"
                 color="inherit"
               >
                 <ShoppingCartOutlinedIcon />
               </IconButton>
+              </Link>
             </div>
           </div>
           <div className={classes.sectionMobile}>
@@ -203,10 +207,12 @@ export default function Dashboard() {
       {renderMobileMenu}
       {renderMenu}
       {/* <Switch>
-        <Route path="/"><Books/></Route>
-        
-        </Switch> */}
-        <Books/>
+        <Route exact path="dashboard/allbooks"><Books/></Route>
+        <Route path="dashboard/mycart" ><Mycart/></Route>
+        </Switch>
+         */}
+        <Mycart/>
+        {/* <Books/> */}
       <Login openDialog={loginOpenDialog} closeDialog={closeDialog} />
     </div>
   );

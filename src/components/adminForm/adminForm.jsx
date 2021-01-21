@@ -59,7 +59,7 @@ export default function AdminForm(props) {
                 <div>
                   <div className="image-container-book"></div>
                   <div className="description-container">
-                    <p className="book-name">{content.description}</p>
+                    <p className="book-name">{content.bookName}</p>
                     <p className="author-name">by {content.author}</p>
                     <p className="price">Rs.{content.price}</p>
                     <div className="parent-button">
