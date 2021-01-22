@@ -7,7 +7,7 @@ import Select from "@material-ui/core/Select";
 import Book1 from "../../asset/ImageBook11.png";
 import Book2 from "../../asset/Image22.png";
 import "./books.scss";
-const BookService = require("../../services/adminproduct_service");
+const BookService = require("../../services/user_productService.js");
 
 const useStyles = makeStyles({
   root: {
@@ -36,11 +36,11 @@ Paragraphs are the building blocks of papers. Many students define paragraphs in
 
 export default function OutlinedCard() {
   const classes = useStyles();
-  const [isToggleAddBag, setToggleAddBag] = React.useState(false);
   const [state, setState] = React.useState({
     sort: "",
   });
-  const [books, setBook] = React.useState([]);
+  const [books, setBook] = React.useState([
+  ]);
 
   useEffect(() => {
     getAllBooksAPI();
@@ -56,8 +56,24 @@ export default function OutlinedCard() {
         console.log(error);
       });
   };
-
-  // const wishlist
+  const addToWishList = () =>{
+    BookService.addWishlist().then((res) =>{
+      console.log(res, "wishlisted");
+    }).catch((error) =>{
+      console.log(error);
+    })
+  }
+  const addToBag = (valueID, index) => {
+    console.log( index);
+    BookService.addToCartBooks(valueID).then((res) =>{
+      console.log(res);
+      let bookArray = [...books];
+      bookArray[index]['isAdded'] = true;
+      setBook(bookArray);
+    }).catch((error) =>{
+      console.log(error);
+    })
+  }
   const bull = <span className={classes.bullet}>•</span>;
 
   return (
@@ -101,20 +117,21 @@ export default function OutlinedCard() {
                       <div className="parent-button">
                         <div
                           className={
-                            isToggleAddBag
+                            books.isAdded
                               ? "addtobag-button-onclick"
                               : "addtobag-button"
                           }
-                          onClick={() => setToggleAddBag(!isToggleAddBag)}
+                          onClick={() => addToBag(books._id, index)}
                         >
                           ADD TO BAG{" "}
                         </div>
                         <div
                           className={
-                            isToggleAddBag
+                            books.isAdded
                               ? "wishlist-button-onclick"
                               : "wishlist-button"
-                          }
+                          } 
+                          onClick={addToWishList}
                         >
                           WISHLIST
                         </div>

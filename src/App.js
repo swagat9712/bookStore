@@ -14,9 +14,9 @@ function App() {
   return (
    <Router>
      <div><Switch>
-       <Route exact path="/admin" component={AdminLogin} />
+       {/* <Route exact path="/admin" component={AdminLogin} /> */}
        <Route path="/forgotpassword" component={ForgotPassword}/>
-       <Route exact path="/dashboard" component={Dashboard}/>
+       <Route exact path="/dashboard/allbooks" component={Dashboard}/>
        <PrivateRoute path="/admin/admindashboard" component={AdminDashboard}/>
      </Switch>
      </div>

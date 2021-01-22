@@ -13,17 +13,13 @@ import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import Books from "../books/books";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import Divider from '@material-ui/core/Divider';
-import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
-import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
-import Mycart from '../myCart/myCart';
+import Divider from "@material-ui/core/Divider";
+import LocalMallOutlinedIcon from "@material-ui/icons/LocalMallOutlined";
+import FavoriteBorderOutlinedIcon from "@material-ui/icons/FavoriteBorderOutlined";
+import Mycart from "../myCart/myCart";
 import { Link } from "react-router-dom";
-import Login from '../Login/login';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import Login from "../Login/login";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./dashboard.scss";
 
 const useStyles = makeStyles((theme) => ({
@@ -60,10 +56,14 @@ export default function Dashboard() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [loginOpenDialog, setLoginOpenDialog] = React.useState(false);
+  const [isHeaderDisplay, setHeaderDisplay] = React.useState(false);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+  const setHeaderDisplayNone = () => {
+    setHeaderDisplay(true);
+  };
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -71,18 +71,18 @@ export default function Dashboard() {
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
-  
+
   const handleMenuClose = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
   };
-  const openDialog = () =>{
+  const openDialog = () => {
     handleMenuClose();
     setLoginOpenDialog(true);
-  }
-  const closeDialog = () =>{
+  };
+  const closeDialog = () => {
     setLoginOpenDialog(false);
-  }
+  };
 
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
@@ -93,20 +93,29 @@ export default function Dashboard() {
     <Menu
       anchorEl={anchorEl}
       anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      className = "prfile"
+      className="prfile"
       id={menuId}
       keepMounted
       transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <div className="login-menu" >
+      <div className="login-menu">
         <h5>Welcome</h5>
         <p>To access acount and manager orders</p>
-        <div className="login-signin" onClick={openDialog}> <h5 className="login-title">LOGIN/SIGNIN</h5> </div>
+        <div className="login-signin" onClick={openDialog}>
+          {" "}
+          <h5 className="login-title">LOGIN/SIGNIN</h5>{" "}
+        </div>
         <Divider variant="middle" />
-        <div className="optios-below-devider"><LocalMallOutlinedIcon fontSize="small"/><p className="p-below-devider">My Order</p></div>
-        <div className="optios-below-devider"><FavoriteBorderOutlinedIcon  fontSize="small"/><p className="p-below-devider">Wishlist</p></div>
+        <div className="optios-below-devider">
+          <LocalMallOutlinedIcon fontSize="small" />
+          <p className="p-below-devider">My Order</p>
+        </div>
+        <div className="optios-below-devider">
+          <FavoriteBorderOutlinedIcon fontSize="small" />
+          <p className="p-below-devider">Wishlist</p>
+        </div>
       </div>
     </Menu>
   );
@@ -165,54 +174,56 @@ export default function Dashboard() {
               inputProps={{ "aria-label": "search" }}
             />
           </div>
-
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-            <div className="profile">
+          
+            <div className={classes.grow} />
+            <div className={classes.sectionDesktop}>
+            {/* <div className={isHeaderDisplay ? "dashboard-icon-container-onClick" : "dashboard-icon-container"}> */}
+              <div className="profile">
+                <IconButton
+                  edge="end"
+                  aria-label="account of current user"
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  onClick={handleProfileMenuOpen}
+                  color="inherit"
+                >
+                  <AccountCircle />
+                </IconButton>
+              </div>
+              <div className="shopping-cart">
+                <Link to="/dashboard/mycart">
+                  <IconButton
+                    aria-label="show 17 new notifications"
+                    color="inherit"
+                  >
+                    <ShoppingCartOutlinedIcon />
+                  </IconButton>
+                </Link>
+              </div>
+            </div>
+            <div className={classes.sectionMobile}>
               <IconButton
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
+                aria-label="show more"
+                aria-controls={mobileMenuId}
                 aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
+                onClick={handleMobileMenuOpen}
                 color="inherit"
               >
-                <AccountCircle />
+                <MoreIcon />
               </IconButton>
             </div>
-            <div className="shopping-cart">
-              <Link to="/mycart">
-              <IconButton
-                aria-label="show 17 new notifications"
-                color="inherit"
-              >
-                <ShoppingCartOutlinedIcon />
-              </IconButton>
-              </Link>
-            </div>
-          </div>
-          <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </div>
+          {/* </div> */}
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
       {/* <Switch>
-        <Route exact path="dashboard/allbooks"><Books/></Route>
-        <Route path="dashboard/mycart" ><Mycart/></Route>
-        </Switch>
-         */}
-        <Mycart/>
-        {/* <Books/> */}
+        <Route path="/dashboard/allbooks"><Books/></Route>
+        <Route path="/dashboard/mycart" component={Mycart}></Route>
+        </Switch> */}
+
+      <Mycart displayNoneForHeader={setHeaderDisplayNone} />
+      {/* <Books/> */}
       <Login openDialog={loginOpenDialog} closeDialog={closeDialog} />
     </div>
   );

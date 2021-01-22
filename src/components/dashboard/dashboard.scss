@@ -52,6 +52,9 @@ p {
   margin: 0 !important;
   font-size: 13px;
 }
+a{
+  color: white;
+}
 .login-menu {
   padding: 0px 10px;
   display: flex;
@@ -71,6 +74,14 @@ p {
   color: #a03037;
   margin-bottom: 7px;
   cursor: pointer;
+}
+.dashboard-icon-container{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.dashboard-icon-container-onClick{
+  display: none;
 }
 .login-title {
   margin: 0 !important;
